@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, output } from '@angular/core';
 import { ProductService } from '../../product.service';
 import { Product } from '../../models/product';
 import { CommonModule } from '@angular/common';
@@ -15,6 +15,7 @@ export class ListComponent implements OnInit {
   products: Product[] = [];
   constructor(private productService: ProductService) {}
 
+  @Output() isList=new EventEmitter<boolean>();
 
   ngOnInit() {
     this.loadProducts();

@@ -14,4 +14,9 @@ import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 })
 export class AppComponent {
   title = 'Transflower Store';
+  isList:boolean=false;
+
+  reRoute(obj:boolean):void{
+    this.isList=obj;
+  }
 }
