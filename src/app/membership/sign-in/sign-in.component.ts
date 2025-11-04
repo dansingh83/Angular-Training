@@ -3,6 +3,8 @@ import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ListComponent } from '../../catalog/products/list/list.component';
+
 
 export class Credential  {
   constructor(public  email:string,public  password:string){  }
@@ -11,7 +13,7 @@ export class Credential  {
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,ListComponent],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })
@@ -34,9 +36,10 @@ export class SignInComponent {
     debugger;
     
     // Example login logic
-    if (this.loginData.email === 'dan.singh@nihilent.com' && this.loginData.password === 'abc123') {
+    if (this.loginData.email === 'dan' && this.loginData.password === 'abc') {
       this.isList=true;
-      alert('Login successful!');
+      this.router.navigate(['/app-list']);
+      
     } else {
       alert('Invalid credentials.');
     }
