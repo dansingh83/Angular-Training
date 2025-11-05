@@ -23,6 +23,7 @@ export class Credential  {
 export class SignInComponent {
 
   isValidUser:boolean=false;
+  IsLogin:boolean=true;
 
  loginData = {
     email: '',
@@ -32,16 +33,15 @@ export class SignInComponent {
   constructor(private svc:AuthService,private router: Router) {    }  //DI
 
   onSubmit() {
-    console.log(this.loginData);
-    debugger;
-    
-    // Example login logic
-    if (this.loginData.email === 'dan' && this.loginData.password === 'abc') {
-      this.isList=true;
-      this.router.navigate(['/app-list']);
-      
-    } else {
-      alert('Invalid credentials.');
-    }
+
+     let isValidUser=this.svc.validate(this.loginData.email,this.loginData.password);
+
+     if(isValidUser){
+            this.router.navigate(['/app-list']);
+            this.IsLogin=false;
+     }else{
+     alert('Invalid credentials.');
+     }
+     
   }
 }

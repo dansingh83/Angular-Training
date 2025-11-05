@@ -6,7 +6,12 @@ export class AuthService {
 
   validate(user: string, password: string): boolean {
      
-      return false;
+      if (user=== 'dan' && password === 'abc') {
+      return true;
+    
+    } else {
+     return false;
+    }
      
  }
 
