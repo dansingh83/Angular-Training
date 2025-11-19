@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
- 
-
-import { RouterModule } from '@angular/router';
-import { RouterLink } from '@angular/router';
-import { SignInComponent } from './sign-in/sign-in.component';
+ import { RouterModule } from '@angular/router';
+import { SignInComponent } from './membership/sign-in/sign-in.component';
 import { CommonModule } from '@angular/common';
-
-@Component({
+ 
+import { CatalogModule } from './catalog/catalog.module';
+import { SharedModule } from './shared/shared.module';
+import { CustomModule } from './custom/custom.module';
+import { GraphicsModule } from './graphics/graphics.module';
+ @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, SignInComponent],
+  imports: [CommonModule,RouterModule,CatalogModule,
+             GraphicsModule,
+            SharedModule,CustomModule, SignInComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
